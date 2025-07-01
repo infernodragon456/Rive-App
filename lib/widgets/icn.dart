@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
-class MascotTitle extends StatefulWidget {
-  const MascotTitle({super.key});
+class MascotIcon extends StatefulWidget {
+  const MascotIcon({super.key});
 
   @override
-  State<MascotTitle> createState() => _MascotTitleState();
+  State<MascotIcon> createState() => _MascotIconState();
 }
 
-class _MascotTitleState extends State<MascotTitle> {
+class _MascotIconState extends State<MascotIcon> {
   late RiveAnimation animation;
   late StateMachineController controller;
 
@@ -17,20 +17,19 @@ class _MascotTitleState extends State<MascotTitle> {
     super.initState();
     animation = RiveAnimation.asset(
       'assets/animations/rive_assets.riv',
-      artboard: 'title',
+      artboard: 'mascoticn',
       fit: BoxFit.contain,
       onInit: onRiveInit,
     );
   }
 
   void onRiveInit(Artboard artboard) {
-    controller =
-        StateMachineController.fromArtboard(artboard, 'State Machine 1')!;
+    controller = StateMachineController.fromArtboard(artboard, 'mascoticn')!;
     artboard.addController(controller);
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: 40, height: 40, child: animation);
+    return SizedBox(width: 50, height: 50, child: animation);
   }
 }
