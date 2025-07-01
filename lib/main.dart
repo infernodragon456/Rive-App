@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
+import 'package:rive_app/pages/landing_page.dart';
+import 'package:rive_app/pages/mascot_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,15 +11,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: RiveAnimation.asset(
-            './assets/animations/anims.riv',
-            speedMultiplier: 2,
-          ),
-        ),
-      ),
+    return MaterialApp(
+      routes: {
+        '/': (context) => const LandingPage(),
+        '/mascot': (context) => const MascotPage(),
+      },
     );
   }
 }
