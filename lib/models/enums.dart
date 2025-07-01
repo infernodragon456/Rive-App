@@ -1,3 +1,3 @@
-enum MascotHatOptions { none, cap, bday, fun }
+enum MascotHatOptions { none, fun, bday, cap }
 
 enum MascotActions { none, jump, wave, name }
