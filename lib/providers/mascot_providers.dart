@@ -26,3 +26,15 @@ class SelectedMascotAction extends _$SelectedMascotAction {
     state = action;
   }
 }
+
+@riverpod
+class SelectedMascotName extends _$SelectedMascotName {
+  @override
+  String build() {
+    return 'Bubbles';
+  }
+
+  void setMascotName(String name) {
+    state = name;
+  }
+}

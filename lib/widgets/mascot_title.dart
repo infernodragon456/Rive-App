@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
 class MascotTitle extends StatefulWidget {
-  const MascotTitle({super.key});
+  final String name;
+  const MascotTitle({super.key, required this.name});
 
   @override
   State<MascotTitle> createState() => _MascotTitleState();
@@ -27,6 +28,8 @@ class _MascotTitleState extends State<MascotTitle> {
     controller =
         StateMachineController.fromArtboard(artboard, 'State Machine 1')!;
     artboard.addController(controller);
+    TextValueRun mascotText = artboard.component<TextValueRun>('mascotName')!;
+    mascotText.text = widget.name;
   }
 
   @override

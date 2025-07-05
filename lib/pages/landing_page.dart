@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rive/rive.dart';
+import 'package:rive_app/providers/mascot_providers.dart';
 import 'package:rive_app/widgets/mascot.dart';
 import 'package:rive_app/widgets/mascot_title.dart';
 
@@ -27,12 +29,22 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
       body: Stack(
         children: [
-          Positioned(top: 10, left: 0, right: 0, child: MascotTitle())
+          Positioned(
+                top: 100,
+                left: 0,
+                right: 0,
+                child: Consumer(
+                  builder: (context, ref, child) {
+                    final name = ref.watch(selectedMascotNameProvider);
+                    return MascotTitle(name: name);
+                  },
+                ),
+              )
               .animate()
               .scaleXY(
                 alignment: Alignment.bottomCenter,
-                begin: 0.5,
-                end: 0.8,
+                begin: 0.8,
+                end: 2,
                 duration: 1.seconds,
               )
               .fadeIn(curve: Curves.easeInOut, duration: 1.seconds),

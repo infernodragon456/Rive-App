@@ -8,6 +8,7 @@ import 'package:rive_app/widgets/hat_selection.dart';
 import 'package:rive_app/widgets/icn.dart';
 import 'package:rive_app/widgets/mascot.dart';
 import 'package:rive_app/widgets/mascot_title.dart';
+import 'package:rive_app/widgets/name_form.dart';
 
 class MascotPage extends StatelessWidget {
   MascotPage({super.key});
@@ -18,7 +19,34 @@ class MascotPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        actions: [IconButton(onPressed: () {}, icon: MascotIcon())],
+        actions: [
+          IconButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return Consumer(
+                    builder: (context, ref, child) {
+                      return NameForm(
+                        onNameSubmitted: (updatedName) {
+                          ref
+                              .read(selectedMascotNameProvider.notifier)
+                              .setMascotName(
+                                updatedName.isEmpty
+                                    ? 'Bubbles'
+                                    : updatedName.trim(),
+                              );
+                          Navigator.pop(context);
+                        },
+                      );
+                    },
+                  );
+                },
+              );
+            },
+            icon: MascotIcon(),
+          ),
+        ],
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -40,7 +68,18 @@ class MascotPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Transform.scale(scale: 6, child: MascotTitle()),
+                Consumer(
+                  builder: (context, ref, child) {
+                    final name = ref.watch(selectedMascotNameProvider);
+                    return Transform.scale(
+                      scale: 6,
+                      child: MascotTitle(
+                        key: ValueKey(name.hashCode),
+                        name: name,
+                      ),
+                    );
+                  },
+                ),
 
                 Consumer(
                   builder: (context, ref, child) {

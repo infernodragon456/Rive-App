@@ -14,8 +14,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        // '/': (context) => const LandingPage(),
-        '/': (context) => MascotPage(),
+        '/': (context) => const LandingPage(),
+        '/mascot': (context) => MascotPage(),
       },
     );
   }

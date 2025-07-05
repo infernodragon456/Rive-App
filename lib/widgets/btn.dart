@@ -3,12 +3,14 @@ import 'package:rive/rive.dart';
 import 'package:rive_app/models/enums.dart';
 
 class MascotBtn extends StatefulWidget {
+  final String? label;
   final MascotActions action;
   final Function(MascotActions) onActionSelected;
   const MascotBtn({
     super.key,
     required this.action,
     required this.onActionSelected,
+    this.label,
   });
 
   @override
@@ -37,6 +39,9 @@ class _MascotBtnState extends State<MascotBtn> {
           '${widget.action.name}btn',
         )!;
     artboard.addController(controller);
+
+    TextValueRun label = artboard.component<TextValueRun>('label')!;
+    label.text = widget.label ?? widget.action.name.toUpperCase();
   }
 
   @override
