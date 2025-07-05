@@ -5,6 +5,9 @@
 *.cxx linguist-detectable=false
 *.h linguist-detectable=false
 
+# Ignore CMake
+CMakeLists.txt linguist-detectable=false
+*.cmake linguist-detectable=false
 
 # Ignore HTML
 *.html linguist-detectable=false
