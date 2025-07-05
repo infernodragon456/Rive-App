@@ -12,9 +12,21 @@ An interactive Flutter application that showcases Rive animations with a customi
 - Fluid animations powered by Rive
 
 ## Screenshots
-![Screenshot_20250705_203857](https://github.com/user-attachments/assets/f0b01805-76a6-42a2-a881-b9a2845f463d)
-![Screenshot_20250705_203906](https://github.com/user-attachments/assets/d4170ccc-667c-45fe-8052-88d0860a063a)
 
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <p><strong>Splash Screen</strong></p>
+        <img src="https://github.com/user-attachments/assets/f0b01805-76a6-42a2-a881-b9a2845f463d" width="300" alt="Splash Screen">
+      </td>
+      <td align="center">
+        <p><strong>Customization Screen</strong></p>
+        <img src="https://github.com/user-attachments/assets/d4170ccc-667c-45fe-8052-88d0860a063a" width="300" alt="Customization Screen">
+      </td>
+    </tr>
+  </table>
+</div>
 
 ## Technologies Used
 
