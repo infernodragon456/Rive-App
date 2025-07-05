@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:rive_app/models/enums.dart';
+import 'package:rive_app/helpers/rive_helper.dart';
 
 class Mascot extends StatefulWidget {
   final MascotHatOptions? hat;
@@ -23,8 +24,8 @@ class _MascotState extends State<Mascot> {
   @override
   void initState() {
     super.initState();
-    animation = RiveAnimation.asset(
-      'assets/animations/rive_assets.riv',
+    animation = RiveAnimation.direct(
+      RiveHelper.mainFile!,
       artboard: 'fullbody',
       fit: BoxFit.contain,
       onInit: onRiveInit,

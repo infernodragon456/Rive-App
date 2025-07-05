@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
+import 'package:rive_app/helpers/rive_helper.dart';
 
 class MascotTitle extends StatefulWidget {
   final String name;
@@ -16,8 +17,8 @@ class _MascotTitleState extends State<MascotTitle> {
   @override
   void initState() {
     super.initState();
-    animation = RiveAnimation.asset(
-      'assets/animations/rive_assets.riv',
+    animation = RiveAnimation.direct(
+      RiveHelper.mainFile!,
       artboard: 'title',
       fit: BoxFit.contain,
       onInit: onRiveInit,

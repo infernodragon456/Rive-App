@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
+import 'package:rive_app/helpers/rive_helper.dart';
 
 class MascotIcon extends StatefulWidget {
   const MascotIcon({super.key});
@@ -15,8 +16,8 @@ class _MascotIconState extends State<MascotIcon> {
   @override
   void initState() {
     super.initState();
-    animation = RiveAnimation.asset(
-      'assets/animations/rive_assets.riv',
+    animation = RiveAnimation.direct(
+      RiveHelper.mainFile!,
       artboard: 'mascoticn',
       fit: BoxFit.contain,
       onInit: onRiveInit,
